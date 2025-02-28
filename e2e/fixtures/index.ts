@@ -1,10 +1,11 @@
 import { test as base } from "@playwright/test";
 import LoginPage from "../poms/login";
-import FormPage from "../poms/form";
+import Task1Page from "../poms/task1";
 
 interface ExtendedFixtures {
   loginPage: LoginPage;
-  formPage: FormPage;
+
+  task1Page: Task1Page;
 }
 
 export const test = base.extend<ExtendedFixtures>({
@@ -13,8 +14,8 @@ export const test = base.extend<ExtendedFixtures>({
     await use(loginPage);
   },
 
-  formPage: async ({ page, browser }, use) => {
-    const formPage = new FormPage(page, browser);
-    await use(formPage);
+  task1Page: async ({ page }, use) => {
+    const task2Page = new Task1Page(page);
+    await use(task2Page);
   },
 });

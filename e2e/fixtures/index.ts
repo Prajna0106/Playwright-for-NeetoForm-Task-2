@@ -15,7 +15,7 @@ export const test = base.extend<ExtendedFixtures>({
   },
 
   task1Page: async ({ page }, use) => {
-    const task2Page = new Task1Page(page);
-    await use(task2Page);
+    const task1Page = new Task1Page(page);
+    await use(task1Page);
   },
 });

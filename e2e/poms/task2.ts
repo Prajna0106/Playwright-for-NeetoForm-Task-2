@@ -193,6 +193,7 @@ export default class Task2Page {
     await this.page.getByTestId(FORM_SELECTORS.publishButton).click();
     const previewPromise = this.page.waitForEvent("popup");
     await this.page.getByTestId(FORM_SELECTORS.publishPreviewButton).click();
+    await this.page.waitForTimeout(2000);
     this.page1 = await previewPromise;
     await this.page1
       .getByTestId(FORM_SELECTORS.formSingleChoiceOption)
@@ -223,7 +224,6 @@ export default class Task2Page {
       .fill(FORM_TEXTS.oliverEmail);
     await this.page1.waitForTimeout(2000);
     await this.page1.getByTestId(FORM_SELECTORS.startOrSubmitButton).click();
-    await this.page1.waitForTimeout(2000);
     await expect(
       this.page1.getByTestId(FORM_SELECTORS.thankYouPageMessage)
     ).toBeVisible();
